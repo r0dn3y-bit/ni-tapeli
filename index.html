@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ni Tapeli?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Ni Tapeli? 🕵️</h1>
+    <p class="sub">Chunguza ujumbe kabla ya kuuamini.</p>
+
+    <nav class="tabs">
+      <button class="tab active" id="tab-btn-check">🔍 Angalia ujumbe</button>
+      <button class="tab" id="tab-btn-quiz">🎯 Jaribio</button>
+      <button class="tab" id="tab-btn-types">📚 Aina</button>
+      <button class="tab" id="tab-btn-help">🆘 Msaada</button>
+    </nav>
+
+    <!-- PANEL 1: MESSAGE CHECKER -->
+    <section id="panel-check" class="panel">
+      <div class="card">
+        <label for="msg-input">Bandika ujumbe uliopokea:</label>
+        <textarea id="msg-input" placeholder="Mfano: Hongera! Umeshinda TSh 5,000,000..."></textarea>
+        <div class="buttons">
+          <button id="btn-analyze">Chunguza</button>
+          <button id="btn-example">Mfano</button>
+          <button id="btn-clear">Futa</button>
+        </div>
+        <p class="privacy">🔒 Ujumbe wako haupelekwi popote. Unachunguzwa kwenye simu yako tu.</p>
+        <div id="check-result" class="hide"></div>
+        <p class="disclaimer">Zana hii hutafuta alama nyekundu tu, haiwezi kuthibitisha kuwa ujumbe ni salama. Ujumbe unaoomba pesa au taarifa zako, thibitisha kwa namba rasmi ya kampuni.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px">
+        <label for="link-input">Una link tu? Ibandike hapa:</label>
+        <input type="text" id="link-input" placeholder="mfano: tra-marejesho.co.tz.malipo-online.com">
+        <div class="buttons">
+          <button id="btn-link">Angalia link</button>
+        </div>
+        <p class="privacy">🔒 Link haifunguliwi. Tunasoma anwani yake tu.</p>
+        <div id="link-result" class="hide"></div>
+      </div>
+
+      <details class="card how" id="how-details">
+        <summary>Jinsi zana hii inavyofanya kazi</summary>
+        <div id="how-body"></div>
+      </details>
+    </section>
+
+    <!-- PANEL 2: QUIZ -->
+    <section id="panel-quiz" class="panel hide">
+      <div class="card" id="quiz">
+        <p id="counter"></p>
+        <p id="sender"></p>
+        <div id="message"></div>
+
+        <div class="buttons">
+          <button id="btn-real">✅ Halali</button>
+          <button id="btn-scam">🚨 Tapeli</button>
+        </div>
+
+        <div id="result" class="hide"></div>
+        <button id="btn-next" class="hide">Endelea →</button>
+      </div>
+
+      <div class="card hide" id="end">
+        <h2>Matokeo yako</h2>
+        <p id="final-score"></p>
+        <button id="btn-restart">Cheza tena</button>
+      </div>
+    </section>
+
+    <!-- PANEL: SCAM TYPES -->
+    <section id="panel-types" class="panel hide">
+      <p class="sub">Gusa kila aina kuona jinsi inavyofanya kazi.</p>
+      <div id="types-list"></div>
+    </section>
+
+    <!-- PANEL 3: HELP -->
+    <section id="panel-help" class="panel hide">
+      <div class="card help">
+        <h2>Umepokea ujumbe wa tuhuma au umetapeliwa?</h2>
+
+        <h3>Kama umepokea ujumbe wa tuhuma</h3>
+        <ul>
+          <li>Usijibu, usibonyeze link, usitume pesa.</li>
+          <li><b>Usifute ujumbe kwanza.</b> Ni ushahidi. Piga picha ya skrini kisha uripoti.</li>
+          <li>Tuma namba ya mtuhumiwa kwa SMS kwenda <b>15040</b> (huduma ya TCRA na Polisi, bila malipo) na ufuate maelekezo.</li>
+        </ul>
+
+        <h3>Kama tayari umetuma pesa au umetoa PIN</h3>
+        <ul>
+          <li>Wasiliana mara moja na huduma kwa wateja ya mtandao wako: piga <b>100</b>.</li>
+          <li>Badilisha PIN ya simu na ya huduma ya pesa haraka iwezekanavyo.</li>
+          <li>Kama taarifa za benki zilihusika, wasiliana na benki yako.</li>
+          <li><b>Hifadhi ushahidi:</b> picha za skrini za ujumbe, namba, tarehe na saa, na meseji ya muamala.</li>
+          <li>Ripoti kituo cha polisi kilicho karibu nawe.</li>
+        </ul>
+
+        <h3>Jikinge</h3>
+        <ul>
+          <li>Angalia laini zilizosajiliwa kwa jina lako kwa kupiga <b>*106#</b>. Usisajili laini kwa ajili ya mtu mwingine.</li>
+          <li>Usifuate maelekezo ya mtu anayetumia namba binafsi na kudai ni mtoa huduma.</li>
+          <li>Thibitisha kila ombi la pesa kwa kumpigia mtu huyo kwenye namba unayoijua.</li>
+        </ul>
+
+        <p class="disclaimer">Namba hizi zinatokana na taarifa za TCRA. Zinaweza kubadilika, kwa hiyo thibitisha kwenye tovuti rasmi ya TCRA.</p>
+      </div>
+    </section>
+
+    <!-- FOOTER: share + report -->
+    <div class="footer">
+      <a class="btn-link" id="btn-share" target="_blank" rel="noopener noreferrer">📲 Tuma kwa rafiki (WhatsApp)</a>
+      <a class="btn-link" id="btn-report" target="_blank" rel="noopener noreferrer">📝 Ripoti ujumbe mpya wa utapeli</a>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="rules.js"></script>
+  <script src="scams.js"></script>
+  <script src="checker.js"></script>
+</body>
+</html>
